@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,8 +88,25 @@
         <div class="menu" id="menu">
             <a href="../index.php"><i class="fas fa-home"></i> Home</a>
             <a href="../index.php?action=newsletter"><i class="fas fa-paper-plane"></i> Newsletter</a>
-            <a href="../index.php?action=register"><i class="fa-solid fa-user-plus"></i> Register</a>
-            <a href="../index.php?action=login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+
+            <?php if (isset($_SESSION['user'])): ?>
+                <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                    <a href=""><i class="fa-solid fa-ticket"></i> Manage Tickets</a>
+                    <a href=""><i class="fa-solid fa-plane"></i> Manage Flights</a>
+                    <a href=""><i class="fa-solid fa-users"></i> Manage Users</a>
+                <?php else: ?>
+                    <a href="../my_bookings.php"><i class="fa-solid fa-ticket"></i> My Bookings</a>
+                    <a href="../profile.php"><i class="fa-solid fa-user"></i> Profile</a>
+                <?php endif; ?>
+
+                <a href="../controllers/UserController.php?action=logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            <?php else: ?>
+                <a href="../index.php?action=register"><i class="fa-solid fa-user-plus"></i> Register</a>
+                <a href="../index.php?action=login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            <?php endif; ?>
+
+
+
         </div>
         <div class="hamburger" id="hamburger">
             <i class="fas fa-bars"></i>

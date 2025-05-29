@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="../includes/reset.css">
-    <!-- <link rel="stylesheet" href="../includes/background.css"> -->
     <style>
         body {
             background: linear-gradient(to right, rgb(73, 93, 136), rgb(190, 131, 35));
@@ -108,7 +107,7 @@
     <main>
         <div class="container">
             <h2>Register</h2>
-            <form action="" method="post">
+            <form action="../controllers/UserController.php?action=register" method="post">
                 <input type="text" name="name" placeholder="Enter Full Name" required>
                 <input type="email" name="email" placeholder="Enter Valid Email" required>
                 <input type="password" name="password" placeholder="Enter Password" required>
