@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="../includes/reset.css">
-    <!-- <link rel="stylesheet" href="../includes/background.css"> -->
     <style>
         body {
             background: linear-gradient(to right, rgb(73, 93, 136), rgb(190, 131, 35));
@@ -108,9 +107,15 @@
     <main>
         <div class="container">
             <h2>Login</h2>
-            <form action="" method="post">
+            <?php
+            if (isset($error)) {
+                echo "<p>$error</p>";
+            }
+            ?>
+            <form action="../controllers/UserController.php?action=login" method="post">
                 <input type="email" name="email" placeholder="Enter Email" required>
                 <input type="password" name="password" placeholder="Enter Password" required>
+
                 <button type="submit"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
                 <a href="../index.php?action=register">Don't have an account? Register</a>
                 <br>
