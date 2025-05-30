@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelGO | Register</title>
+    <title>TravelGO | Login</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -51,6 +51,16 @@
         form input:focus {
             border-color: var(--accent-color);
             outline: none;
+        }
+
+        form .remember-me {
+            display: flex;
+            margin-bottom: .5rem;
+        }
+
+        .remember-me input {
+            display: inline-block;
+            width: auto;
         }
 
         form button {
@@ -107,20 +117,21 @@
     <main>
         <div class="container">
             <h2>Login</h2>
-            <?php
-            if (isset($error)) {
-                echo "<p>$error</p>";
-            }
-            ?>
-            <form action="../controllers/UserController.php?action=login" method="post">
-                <input type="email" name="email" placeholder="Enter Email" required>
+            <form action="../controllers/AuthController.php?action=login" method="post">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    required>
+
                 <input type="password" name="password" placeholder="Enter Password" required>
 
                 <button type="submit"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
-                <a href="../index.php?action=register">Don't have an account? Register</a>
-                <br>
+                <a href="../index.php?action=register">Don't have an account? Register</a><br>
                 <a href="../index.php?action=forgot">Forgot Password?</a>
             </form>
+
+
         </div>
     </main>
 

@@ -6,7 +6,7 @@ class Database
     private $db_name = 'travelgo';
     private $username = 'root';
     private $password = '';
-    private $conn;
+    public $conn;
 
     public function __construct()
     {

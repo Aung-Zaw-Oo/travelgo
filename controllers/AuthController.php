@@ -2,7 +2,7 @@
 
 require_once '../models/Auth.php';
 
-$action = $_GET['action'];
+$action = $_GET['action'] ?? '';
 
 switch ($action) {
     case 'register':
@@ -15,27 +15,23 @@ switch ($action) {
             $auth->register($name, $email, $password);
         }
         header('Location: ../index.php?action=login');
-        break;
+        exit();
 
     case 'login':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $auth = new Auth();
-            $error = $auth->login($email, $password);
-
-            if ($error) {
-                echo "<p style='color:red;'>$error</p>";
-            }
+            $auth->login($email, $password);
         }
         break;
 
     case 'logout':
         $auth = new Auth();
         $auth->logout();
-        break;
+        exit();
 
-        // default:
-        //     header('Location: ../index.php');
-        //     break;
+    default:
+        header('Location: ../index.php');
+        exit();
 }

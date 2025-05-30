@@ -107,7 +107,7 @@
     <main>
         <div class="container">
             <h2>Register</h2>
-            <form action="../controllers/UserController.php?action=register" method="post">
+            <form action="../controllers/AuthController.php?action=register" method="post">
                 <input type="text" name="name" placeholder="Enter Full Name" required>
                 <input type="email" name="email" placeholder="Enter Valid Email" required>
                 <input type="password" name="password" placeholder="Enter Password" required>
