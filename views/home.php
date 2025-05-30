@@ -1,3 +1,10 @@
+<?php
+require_once '../models/Flight.php';
+
+$flightModel = new Flight();
+$flights = $flightModel->getAllFlights();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -135,43 +142,37 @@
 
     <main>
         <section class="search-bar">
-            <input type="text" placeholder="Airline">
-            <input type="text" placeholder="From">
-            <input type="text" placeholder="To">
-            <input type="text" placeholder="Departure Time">
-            <input type="text" placeholder="Arrival Time">
-            <button><i class="fas fa-search"></i> Search</button>
+            <form method="GET" action="index.php">
+                <input type="text" name="airline" placeholder="Airline" value="<?= isset($_GET['airline']) ? htmlspecialchars($_GET['airline']) : '' ?>">
+                <input type="text" name="origin" placeholder="From" value="<?= isset($_GET['origin']) ? htmlspecialchars($_GET['origin']) : '' ?>">
+                <input type="text" name="destination" placeholder="To" value="<?= isset($_GET['destination']) ? htmlspecialchars($_GET['destination']) : '' ?>">
+                <input type="date" name="departure_date" placeholder="Departure Date" value="<?= isset($_GET['departure_date']) ? htmlspecialchars($_GET['departure_date']) : '' ?>">
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
         </section>
 
         <section class="flights-list">
             <h2><i class="fas fa-plane"></i> Available Flights</h2>
 
-            <div class="flight-item">
-                <div><i class="fas fa-building"></i> Myanmar Airways</div>
-                <div><i class="fas fa-plane-departure"></i> Yangon</div>
-                <div><i class="fas fa-plane-arrival"></i> Bangkok</div>
-                <div><i class="far fa-clock"></i> 10:00 AM - 12:30 PM</div>
-                <div class="flight-price"><i class="fa-solid fa-dollar-sign"></i> 120</div>
-                <button class="book-btn"><i class="fas fa-ticket-alt"></i> Book Now</button>
-            </div>
-
-            <div class="flight-item">
-                <div><i class="fas fa-building"></i> Singapore Airlines</div>
-                <div><i class="fas fa-plane-departure"></i> Yangon</div>
-                <div><i class="fas fa-plane-arrival"></i> Singapore</div>
-                <div><i class="far fa-clock"></i> 2:00 PM - 5:00 PM</div>
-                <div class="flight-price"><i class="fa-solid fa-dollar-sign"></i> 180</div>
-                <button class="book-btn"><i class="fas fa-ticket-alt"></i> Book Now</button>
-            </div>
-
-            <div class="flight-item">
-                <div><i class="fas fa-building"></i> AirAsia</div>
-                <div><i class="fas fa-plane-departure"></i> Yangon</div>
-                <div><i class="fas fa-plane-arrival"></i> Kuala Lumpur</div>
-                <div><i class="far fa-clock"></i> 6:00 PM - 9:00 PM</div>
-                <div class="flight-price"><i class="fa-solid fa-dollar-sign"></i> 140</div>
-                <button class="book-btn"><i class="fas fa-ticket-alt"></i> Book Now</button>
-            </div>
+            <?php if (count($flights) === 0): ?>
+                <p>No flights available.</p>
+            <?php else: ?>
+                <?php foreach ($flights as $flight): ?>
+                    <div class="flight-item">
+                        <div><i class="fas fa-building"></i> <?= htmlspecialchars($flight['airline']) ?></div>
+                        <div><i class="fas fa-plane-departure"></i> <?= htmlspecialchars($flight['origin']) ?></div>
+                        <div><i class="fas fa-plane-arrival"></i> <?= htmlspecialchars($flight['destination']) ?></div>
+                        <div><i class="far fa-clock"></i>
+                            <?= date('h:i A', strtotime($flight['departure_time'])) ?> - <?= date('h:i A', strtotime($flight['arrival_time'])) ?>
+                        </div>
+                        <div class="flight-price"><i class="fa-solid fa-dollar-sign"></i> <?= htmlspecialchars($flight['price']) ?></div>
+                        <form method="GET" action="book_flight.php" style="display:inline;">
+                            <input type="hidden" name="flight_id" value="<?= $flight['id'] ?>">
+                            <button class="book-btn" type="submit"><i class="fas fa-ticket-alt"></i> Book Now</button>
+                        </form>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </section>
     </main>
 

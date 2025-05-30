@@ -1,25 +1,28 @@
 <?php
 
-
 $action = $_GET['action'] ?? 'default';
 switch ($action) {
     case 'newsletter':
         header('Location: views/newsletter.php');
-        break;
+        exit();
 
     case 'register':
         header('Location: views/register.php');
-        break;
+        exit();
 
     case 'login':
         header('Location: views/login.php');
-        break;
+        exit();
 
     case 'forgot':
         header('Location: views/forgot.php');
-        break;
+        exit();
+
+    case 'manage_flights':
+        header('Location: views/manage_flights.php');
+        exit();
 
     default:
         header('Location: views/home.php');
-        break;
+        exit();
 }
