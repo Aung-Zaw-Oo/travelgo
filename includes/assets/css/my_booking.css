@@ -1,0 +1,257 @@
+body {
+  background: linear-gradient(to right, rgb(73, 93, 136), rgb(190, 131, 35));
+  color: #333;
+}
+
+main {
+  padding: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+form.filter-form {
+  margin-bottom: 20px;
+}
+
+form.filter-form label {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+form.filter-form input,
+form.filter-form select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+form.filter-form button {
+  padding: 8px 18px;
+  background: var(--decent-color);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form.filter-form button:hover {
+  background: var(--accent-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+thead th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 114, 255, 0.1);
+}
+
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-confirmed {
+  color: green;
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: red;
+  font-weight: bold;
+}
+
+/* Buttons */
+button.view-details,
+button.cancel-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: white;
+  margin-right: 6px;
+  width: 100px;
+  margin-bottom: 5px;
+}
+
+button.view-details {
+  background: #00c6ff;
+}
+
+button.view-details:hover {
+  background: #0072ff;
+}
+
+button.cancel-btn {
+  background: #f44336;
+}
+
+button.cancel-btn:hover:not(:disabled) {
+  background: #d32f2f;
+}
+
+button.cancel-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  margin: 8% auto;
+  padding: 20px;
+  width: 500px;
+  max-width: 90%;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  color: #333;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Responsive Tables */
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  tbody td:last-child {
+    display: flex;
+    gap: 5px;
+    border-bottom: none;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 10px;
+    flex: 1;
+    text-align: left;
+  }
+
+  button.view-details,
+  button.cancel-btn {
+    width: 100%;
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+
+  form.filter-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form.filter-form label {
+    margin-bottom: 5px;
+  }
+
+  form.filter-form input,
+  form.filter-form select,
+  form.filter-form button {
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+}

@@ -29,137 +29,8 @@ if (!$flight) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Flight</title>
     <link rel="stylesheet" href="../includes/reset.css">
-    <style>
-        main {
-            background-color: #f7f9fc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px 15px;
-            color: #333;
-        }
-
-        .container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px 25px;
-            margin: 20px 0;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Flight Info */
-        .container h1 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #1d3557;
-            text-align: center;
-        }
-
-        .container p {
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .container p span {
-            font-weight: bold;
-            color: #457b9d;
-        }
-
-        /* Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        form label {
-            font-weight: bold;
-            color: #1d3557;
-            font-size: 0.95rem;
-        }
-
-        form input,
-        form select {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: #fefefe;
-            transition: border-color 0.3s;
-        }
-
-        form input:focus,
-        form select:focus {
-            border-color: #457b9d;
-            outline: none;
-        }
-
-        #payment-fields {
-            margin-top: 10px;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: var(--accent-color);
-        }
-
-        .btn-cancel {
-            padding: 10px 15px;
-            background-color: #ff4d4d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-cancel:hover {
-            background-color: #cc0000;
-        }
-
-
-        .payment-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            .container h1 {
-                font-size: 1.3rem;
-            }
-
-            form label {
-                font-size: 0.9rem;
-            }
-
-            form input,
-            form select {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
-
+    <link rel="stylesheet" href="../includes/assets/css/book_flight.css">
 </head>
-
 <body>
 
     <?php include '../includes/header.php' ?>
@@ -211,11 +82,11 @@ if (!$flight) {
                 </select>
 
                 <div id="payment-fields">
-                    <!-- for payment methods insertion -->
+
                 </div>
 
-                <button type="submit">Confirm Booking</button>
-                <button type="button" onclick="history.back()" class="btn-cancel">Cancel</button>
+                <button type="submit" class="btn-submit"><i class="fa-solid fa-check"></i> Confirm Booking</button>
+                <a href="manage_flights.php" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back</a>
 
             </form>
         </div>

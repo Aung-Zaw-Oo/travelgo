@@ -1,5 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
+    header('Location: ../index.php');
+    exit();
+}
+?>
 
+<?php
 /**
  * Get Flight By ID
  * @return array<int, array<string, mixed>>
@@ -18,107 +25,11 @@ $flightData = $flightModel->getFlightById($_GET['id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Flight</title>
     <link rel="stylesheet" href="../includes/reset.css">
+    <link rel="stylesheet" href="../includes/assets/css/edit_flight.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        main {
-            width: 100%;
-        }
-
-        .container {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 0.4rem;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        input {
-            padding: 0.6rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        input:focus {
-            border-color: var(--accent-color);
-            outline: none;
-        }
-
-        .btn-submit,
-        .btn-back {
-            display: inline-block;
-            text-align: center;
-            padding: 0.75rem 1.2rem;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #fff;
-            background: #14213D;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-submit {
-            background: #fca311;
-            color: #000;
-        }
-
-        .btn-submit:hover {
-            background: #e48f00;
-        }
-
-        .btn-back {
-            background: #14213D;
-        }
-
-        .btn-back:hover {
-            background: #0f1b2c;
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                padding: 1rem;
-            }
-
-            input {
-                font-size: 0.9rem;
-            }
-
-            .btn-submit,
-            .btn-back {
-                font-size: 0.9rem;
-                padding: 0.5rem 1rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
-
     <?php include '../includes/header.php'; ?>
 
     <main>

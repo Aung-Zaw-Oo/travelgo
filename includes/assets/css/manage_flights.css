@@ -1,0 +1,156 @@
+body {
+  background: linear-gradient(to right, rgb(73, 93, 136), rgb(190, 131, 35));
+  color: #333;
+  min-height: 100vh;
+}
+
+main {
+  padding: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Add New Flight button */
+.btn-add {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--decent-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-add:hover {
+  background: var(--accent-color);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+thead th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 114, 255, 0.1);
+}
+
+/* Actions buttons container */
+.actions a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+/* Edit button */
+.btn-edit {
+  background: #00c6ff;
+}
+
+.btn-edit:hover {
+  background: #0072ff;
+}
+
+/* Delete button */
+.btn-delete {
+  background: #f44336;
+}
+
+.btn-delete:hover {
+  background: #d32f2f;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  tbody td {
+    border: none;
+    padding: 8px;
+    position: relative;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #0072ff;
+    display: block;
+    margin-bottom: 4px;
+    text-align: start;
+  }
+
+  .actions a {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}

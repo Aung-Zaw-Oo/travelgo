@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.ticket {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+}
+
+.ticket-header {
+  text-align: center;
+  border-bottom: 2px dashed #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ticket-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #0072ff;
+}
+
+.ticket-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.ticket-details p strong {
+  color: #0072ff;
+}
+
+.ticket-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff5722;
+  margin-top: 1rem;
+}
+
+.ticket-footer {
+  text-align: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.ticket-footer p {
+  margin: 0.3rem 0;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: #0072ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.home-link:hover {
+  background: #0056b3;
+}

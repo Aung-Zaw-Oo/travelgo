@@ -36,7 +36,6 @@ class Booking extends Database
         return $stmt->fetch();
     }
 
-    // In Booking.php
     public function getBookingDetails($booking_id)
     {
         $sql = "SELECT b.*, f.flight_number, f.airline, f.origin, f.destination, f.departure_time, f.arrival_time 

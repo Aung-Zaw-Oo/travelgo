@@ -80,4 +80,30 @@ class Flight
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+
+    public function searchFlights($origin = '', $destination = '', $date = '')
+    {
+        $sql = "SELECT * FROM flights WHERE 1=1";
+        $params = [];
+
+        if (!empty($origin)) {
+            $sql .= " AND origin LIKE ?";
+            $params[] = '%' . $origin . '%';
+        }
+
+        if (!empty($destination)) {
+            $sql .= " AND destination LIKE ?";
+            $params[] = '%' . $destination . '%';
+        }
+
+        if (!empty($date)) {
+            $sql .= " AND DATE(departure_time) = ?";
+            $params[] = $date;
+        }
+
+        $stmt = $this->db->getConnection()->prepare($sql);
+        $stmt->execute($params);
+
+        return $stmt->fetchAll();
+    }
 }
