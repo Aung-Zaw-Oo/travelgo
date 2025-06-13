@@ -4,7 +4,6 @@ require_once '../models/Flight.php';
 
 $flight = new Flight();
 
-// Add Flight 
 if (isset($_GET['action']) && $_GET['action'] == 'add') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $airline = $_POST['airline'];
@@ -23,7 +22,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'add') {
     }
 }
 
-// Edit Flight
 if (isset($_GET['action']) && $_GET['action'] == 'edit') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
@@ -43,7 +41,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'edit') {
     }
 }
 
-// Delete Flight
 if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
     $flight->deleteFlight($_GET['id']);
     header("Location: ../views/manage_flights.php");

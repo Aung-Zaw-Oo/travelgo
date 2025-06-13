@@ -1,0 +1,126 @@
+body {
+  background: linear-gradient(to right, rgb(73, 93, 136), rgb(190, 131, 35));
+  color: #fff;
+  min-height: 100vh;
+}
+
+main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.search-bar form {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.search-bar input,
+.search-bar select {
+  flex: 1 1 150px;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  min-width: 140px;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  background: #ffd700;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+.search-bar button:hover {
+  background: #ffbf00;
+}
+
+/* Flights List Styling */
+.flights-list h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.flight-item {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flight-item div {
+  flex: 1 1 50px;
+  text-align: center;
+}
+
+.flight-item .flight-price {
+  font-weight: bold;
+  color: #00ffaa;
+}
+
+.flight-item button {
+  background: #ffd700;
+  color: black;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.flight-item button:hover {
+  background: #ffbf00;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .flight-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flight-item div {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar input,
+  .search-bar select,
+  .search-bar button {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .search-bar form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

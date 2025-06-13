@@ -97,8 +97,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <a href="../index.php?action=manage_flights"><i class="fa-solid fa-plane"></i> Manage Flights</a>
                     <a href="../index.php?action=manage_users"><i class="fa-solid fa-users"></i> Manage Users</a>
                 <?php else: ?>
-                    <a href="../my_bookings.php"><i class="fa-solid fa-ticket"></i> My Bookings</a>
-                    <a href="../profile.php"><i class="fa-solid fa-user"></i> Profile</a>
+                    <a href="../views/my_bookings.php"><i class="fa-solid fa-ticket"></i> My Bookings</a>
+                    <a href="../views/profile.php"><i class="fa-solid fa-user"></i> Profile</a>
                 <?php endif; ?>
 
                 <a href="../controllers/AuthController.php?action=logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>

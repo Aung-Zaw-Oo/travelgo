@@ -1,0 +1,119 @@
+body {
+  background: linear-gradient(to right, rgb(73, 93, 136), rgb(190, 131, 35));
+  color: var(--text-color);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(245, 245, 245, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+form .remember-me {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.remember-me input {
+  display: inline-block;
+  width: auto;
+}
+
+form button,
+.btn-back {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--decent-color);
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+form button:hover {
+  background: var(--accent-color);
+}
+
+form button i {
+  margin-right: 0.5rem;
+}
+
+form a {
+  color: var(--primary-color);
+}
+
+.btn-back {
+  background: #14213d;
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+}
+
+.btn-back:hover {
+  background: #0f1b2c;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.25rem;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+
+  form a {
+    font-size: 0.85rem;
+  }
+}
+
+.alert {
+  padding: 12px 20px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
